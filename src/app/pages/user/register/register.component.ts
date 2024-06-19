@@ -57,6 +57,7 @@ export class RegisterComponent {
 
 		this.userService.registerUser(newUser).subscribe({
         next: (response) => {
+
             Swal.fire({
                 title: '¡Registro exitoso!',
                 text: 'El usuario ha sido registrado correctamente.',
