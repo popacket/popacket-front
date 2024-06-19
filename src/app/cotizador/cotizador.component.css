@@ -1,0 +1,28 @@
+.cotizador{
+    height: 70vh;
+    width: 100%;
+    background-color: beige;
+}
+.imagen-lateral{
+    width: 60vw;
+    height: 100%;
+   /* background-image: /*linear-gradient(
+        0deg,
+        #000,
+        #fff
+    ), 
+    url("/popacket-front/src/assets/cotizador.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    /* background-position: center center; */
+}
+
+.cotizador-lateral{
+    width: 40vw;
+    height: 100%;
+    background-color: ghostwhite;
+    
+}
+.botonLabel{
+    width: 6em;
+}
