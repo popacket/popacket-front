@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ShipmentService } from '../service/shipment.service';
 
 @Component({
   selector: 'app-cotizador',
@@ -9,4 +10,19 @@ import { Component } from '@angular/core';
 })
 export class CotizadorComponent {
 
+  "weight" : number;
+  "serviceType" : string;
+  "quote": number;
+  constructor(private shipmentService: ShipmentService) {}
+
+  getQuote() {
+    this.shipmentService.getQuoteShipment(this.weight, this.serviceType).subscribe(
+      (data: number) => {
+        this.quote = data;
+      },
+      (error) => {
+        console.error('Error fetching quote', error);
+      }
+    );
+  }
 }

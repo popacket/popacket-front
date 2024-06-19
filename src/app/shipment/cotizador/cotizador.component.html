@@ -7,7 +7,7 @@
         <div class="formulario-cotizador py-5 ">
             <p class="text-3xl text-center mt-10 mb-9 font-bold text-blue-500">Cotizador</p>
             <div class="pesoYtipo item-center py-5 flex-wrap">
-                <form action="" class="my-1">
+                <form action="" class="my-1" (ngSubmit)="getQuote()">
                     <label for="" class="text-xl font-bold text-blue-500">Peso</label>
                     <input type="text" class="mx-4 rounded-full" placeholder="(Kg)">
                     <select name="typeService" id="typeService" class="rounded-full">
@@ -15,12 +15,14 @@
                         <option value="service2">Estandar</option>
                         <option value="service3">Expres</option>
                     </select>
+                    
+                    <div class="botonLabel flex flex-col justify-content-center mx-auto my-1" *ngIf="quote !== undefined">
+                        <button class="border-navy focus:ring border shadow-md rounded-lg bg-blue-500 py-1 px-3 text-white hover:bg-blue-900">Cotizar</button>
+                        <label for="">{{quote}}</label>
+                    </div> 
                 </form>
             </div>
-            <div class="botonLabel flex flex-col justify-content-center mx-auto my-1">
-                <button class="border-navy focus:ring border shadow-md rounded-lg bg-blue-500 py-1 px-3 text-white hover:bg-blue-900">Cotizar</button>
-                <label for=""></label>
-            </div> 
+            
         </div>
 
     </div>
