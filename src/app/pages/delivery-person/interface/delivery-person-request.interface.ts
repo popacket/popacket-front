@@ -1,7 +1,6 @@
-export interface DeliveryPersonRequest {
-
+export interface DeliveryPersonRequest 
+{
     nombre : string,
     phone : string,
     type : string
-
 }
