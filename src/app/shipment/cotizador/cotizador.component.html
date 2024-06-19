@@ -8,9 +8,9 @@
             <p class="text-3xl text-center mt-10 mb-9 font-bold text-blue-500">Cotizador</p>
             <div class="pesoYtipo item-center py-5 flex-wrap">
                 <form action="" class="my-1" (ngSubmit)="getQuote()">
-                    <label for="" class="text-xl font-bold text-blue-500">Peso</label>
-                    <input type="text" class="mx-4 rounded-full" placeholder="(Kg)">
-                    <select name="typeService" id="typeService" class="rounded-full">
+                    <label for="weight" class="text-xl font-bold text-blue-500">Peso</label>
+                    <input type="number" id="weight" [(ngModel)]="weight" name="weight" required class="mx-4 rounded-full" placeholder="(Kg)">
+                    <select name="typeService" id="serviceType" [(ngModel)]="serviceType" class="rounded-full" required>
                         <option value="service1">Economico</option>
                         <option value="service2">Estandar</option>
                         <option value="service3">Expres</option>
