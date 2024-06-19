@@ -15,4 +15,4 @@ export class DeliveryPersonService {
   constructor(private http:HttpClient) { }
 
   }
-}
+
