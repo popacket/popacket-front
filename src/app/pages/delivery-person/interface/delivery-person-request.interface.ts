@@ -1,6 +1,6 @@
 export interface DeliveryPersonRequest 
 {
-    nombre : string,
+    name : string,
     phone : string,
     type : string
 }
