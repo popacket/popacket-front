@@ -1,0 +1,65 @@
+<div class="w-screen h-screen dark:bg-gray-700 relative">
+  <div class="relative w-full sm:w-7/12 md:w-6/12 lg:w-6/12 m-auto">
+    <header class="pt-6 pb-6 flex justify-center">
+      <img loading="lazy" class="w-56" src="/assets/img/logo.png" alt="logo">
+    </header>
+    <div class="max-w-2xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+      <h2 class="text-center text-lg font-semibold text-gray-700 capitalize dark:text-white">Registrarse</h2>
+
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="grid grid-cols-1 gap-2 mt-4 sm:grid-cols-2">
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="nameRegister">Nombres</label>
+            <input id="nameRegister" type="text" formControlName="name"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+            <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('name', 'required')">Este campo es requerido</p>
+          </div>
+
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="lastnameRegister">Apellidos</label>
+            <input id="lastnameRegister" type="text" formControlName="lastName"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+            <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('lastName', 'required')">Este campo es requerido</p>
+          </div>
+
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="docRegister">Documento</label>
+            <input id="docRegister" type="text" formControlName="document"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+              <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('document', 'required')">Este campo es requerido</p>
+          </div>
+
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="telRegister">Telefono</label>
+            <input id="telRegister" type="text" formControlName="phone"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+            <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('phone', 'required')">Este campo es requerido</p>
+            <!-- <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('phone', 'onlyNumbersValidator')">Ingrese solo datos numericos</p> -->
+            </div>
+
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="emailRegister">Correo</label>
+            <input id="emailRegister" type="email" formControlName="email"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+            <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('email', 'required')">Este campo es requerido</p>
+            <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('email', 'email')">Ingrese un correo valida</p>
+          </div>
+
+          <div>
+            <label class="text-gray-700 dark:text-gray-200" for="passRegister">Contraseña</label>
+            <input id="passRegister" type="password" formControlName="pass"
+              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+            <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('pass', 'required')">Este campo es requerido</p>
+            <p class="text-gray-700 dark:text-gray-200" *ngIf="controlHasError('pass', 'minlength')">La contraseña tiene minimo 8 caracteres</p>
+
+            </div>
+        </div>
+
+        <div class="flex justify-end mt-6">
+          <button type="submit" [disabled]="!userForm.valid"
+            class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Registrar usuario</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
