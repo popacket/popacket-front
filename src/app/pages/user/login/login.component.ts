@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { BtnComponent } from '../../components/btn/btn.component'
+// import { BtnComponent } from '../../components/btn/btn.component'
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [BtnComponent],
+  imports: [],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
