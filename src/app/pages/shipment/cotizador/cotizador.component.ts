@@ -16,7 +16,6 @@ import {
   styleUrl: './cotizador.component.css'
 })
 export class CotizadorComponent {
-
   "quote" : number = 0;
   costForm: FormGroup;
   private shipmentService = inject(ShipmentService);
