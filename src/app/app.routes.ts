@@ -1,3 +1,10 @@
-import { Routes } from '@angular/router';
+import { routes } from './app.routes';
+import { Routes, RouterOutlet } from '@angular/router';
+import { MyShipmentsComponent } from './user/my-ActiveShipments/my-ActiveShipments.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: 'myactiveshipments'
+   : MyShipmentsComponent
+  }
+];
