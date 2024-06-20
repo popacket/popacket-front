@@ -16,8 +16,7 @@ import {
   styleUrl: './cotizador.component.css'
 })
 export class CotizadorComponent {
-  // "weight": number;
-  // "serviceType" : string;
+
   "quote" : number = 0;
   costForm: FormGroup;
   private shipmentService = inject(ShipmentService);
@@ -28,30 +27,14 @@ export class CotizadorComponent {
 			serviceType: ['', Validators.required]
 		});
   }
-  // getQuote() {
-  //   this.shipmentService.getQuote(this.weight, this.serviceType).subscribe({
-  //     next: (response) => {
-  //       data = response.data;
-  //       console.log(data);
-  //       this.quote = data;
-  //     },
-  //     error: (error) => {
-  //       console.error('Error al obtener la cotización', error);
-  //     }
-  //   }
-      
-  //   );
-  // }
-
   onSubmit(){
     const formValue = this.costForm.value;
     const weight = formValue.weight;
     const serviceType = formValue.serviceType;
     this.shipmentService.getQuote(weight,serviceType).subscribe({
       next: (response) => {
-        // data = response.data;
         console.log(response);
-        // this.quote = data;
+        this.quote = response;
       },
       error: (error) => {
         console.error('Error al obtener la cotización', error);

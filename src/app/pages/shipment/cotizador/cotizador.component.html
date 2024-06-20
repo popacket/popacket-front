@@ -1,29 +1,30 @@
-<div class="cotizador sm:flex ">
-    <div class="imagen-lateral flex">
-        <img src="/popacket-front/src/assets/cotizador.jpg" alt="" class="relative h-12 w-12">
+<div class="cotizador flex flex-col-reverse md:flex-row">
+    <div class="imagen-lateral flex bg-cover">
+        <img src="\assets\img\cotizador.png" alt="" class="">
     </div>
-    <div class="cotizador-lateral flex flex-col container:mx-auto text-center item-center justify-content-center">
-
-        <div class="formulario-cotizador py-5 ">
+    <div class="cotizador-lateral flex flex-col container:mx-auto text-center item-center justify-center border-solid border-2 border-blue-500">
+        <div class="formulario-cotizador py-5">
             <p class="text-3xl text-center mt-10 mb-9 font-bold text-blue-500">Cotizador</p>
-            <div class="pesoYtipo item-center py-5 flex-wrap">
+            <div class="pesoYtipo flex flex-col py-5 flex-wrap">
 
                 <form [formGroup]="costForm" (ngSubmit)="onSubmit()" class="my-1" >
                     <label for="weight" class="text-xl font-bold text-blue-500">Peso</label>
                     <input type="number" formControlName="weight" name="weight" required class="mx-4 rounded-full" placeholder="(Kg)">
-                    <select name="typeService" formControlName="serviceType" class="rounded-full" required>
+                    <select name="typeService" formControlName="serviceType" class="rounded-full my-2" required>
                         <option value="Economico" selected>Economico</option>
                         <option value="Estandar">Estandar</option>
-                        <option value="Expres">Expres</option>
+                        <option value="Express">Express</option>
                     </select>
 
-                    <div class="botonLabel flex flex-col justify-content-center mx-auto my-1" *ngIf="quote !== undefined">
-                        <button type="submit" class="border-navy focus:ring border shadow-md rounded-lg bg-blue-500 py-1 px-3 text-white hover:bg-blue-900">Cotizar</button>
-                        <label for="">{{quote}}</label>
-                    </div> 
+                    <div class="botonLabel my-2 px-9 flex justify-center items-center" *ngIf="quote !== undefined">
+                      <div class="boton flex w-50% my-2">
+                        <button type="submit" class="focus:ring border shadow-md rounded-lg bg-blue-500 px-5 h-9 text-white hover:bg-blue-900">Cotizar</button>
+                      </div>
+                        <label for="" class="my-9 pt-2 mx-4">Precio: {{quote}}</label>
+                    </div>
                 </form>
             </div>
-            
+
         </div>
 
     </div>
