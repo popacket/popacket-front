@@ -3,7 +3,7 @@ import { MyShipmentsComponent } from './user/my-ActiveShipments/my-ActiveShipmen
 
 export const routes: Routes = [
   {
-    path: 'myactiveshipments'
-   : MyShipmentsComponent
+    path: 'myactiveshipments',
+    component : MyShipmentsComponent
   }
 ];
