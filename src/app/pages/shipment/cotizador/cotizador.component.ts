@@ -26,6 +26,7 @@ export class CotizadorComponent {
 			serviceType: ['', Validators.required]
 		});
   }
+  
   onSubmit(){
     const formValue = this.costForm.value;
     const weight = formValue.weight;
