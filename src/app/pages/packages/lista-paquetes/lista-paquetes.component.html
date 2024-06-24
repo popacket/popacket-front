@@ -1,0 +1,23 @@
+<table class="table flex border border-solid border-1 border-blue-200">
+  <thead class="bg-gray-500 h-10">
+    <tr class="px-10">
+      <td>ID</td>
+      <td>Descripción</td>
+      <td>Dirección de destino</td>
+      <td>Dirección de origen</td>
+      <td>Tipo de Pago</td>
+      <td>Estado</td>
+      <td>Peso</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let package of packages">
+      <td>{{ package.id }}</td>
+      <td>{{ package.description }}</td>
+      <td>{{ package.destinationAddress }}</td>
+      <td>{{ package.originAddress }}</td>
+      <td>{{ package.paymentType }}</td>
+      <td>{{ package.status }}</td>
+      <td>{{ package.weight }}</td>
+  </tbody>
+</table>

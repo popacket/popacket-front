@@ -1,5 +1,5 @@
 import { Routes, RouterOutlet } from '@angular/router';
-import { MyShipmentsComponent } from './user/my-ActiveShipments/my-ActiveShipments.component';
+import { MyShipmentsComponent } from './pages/user/my-ActiveShipments/my-ActiveShipments.component';
 
 export const routes: Routes = [
   {
