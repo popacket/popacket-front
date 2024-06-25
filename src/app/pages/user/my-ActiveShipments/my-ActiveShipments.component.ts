@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from '../../../navbar/navbar.component';
+import { NavbarComponent } from '../../../components/navbar/navbar.component';
 import { ListaPaquetesComponent } from '../../packages/lista-paquetes-por-Recoger/lista-paquetes.component';
 
 @Component({
