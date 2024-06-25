@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../../../navbar/navbar.component';
-import { ListaPaquetesComponent } from '../../packages/lista-paquetes/lista-paquetes.component';
+import { ListaPaquetesComponent } from '../../packages/lista-paquetes-por-Recoger/lista-paquetes.component';
 
 @Component({
   selector: 'app-my-ActiveShipments',

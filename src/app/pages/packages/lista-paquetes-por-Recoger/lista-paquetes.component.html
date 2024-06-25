@@ -1,0 +1,32 @@
+<table class="table min-w-full flex border border-solid border-1 border-blue-200 ">
+  <thead class="bg-blue-500 text-white h-5">
+    <tr class="px-20">
+      <td class="w-1/6 py-3 px-4 text-center" >ID</td>
+      <td class="w-1/6 py-3 px-4 text-left">Descripción</td>
+      <td class="w-1/6 py-3 px-4 text-left">Dirección de destino</td>
+      <td class="w-1/6 py-3 px-4 text-left">Dirección de origen</td>
+      <td class="w-1/6 py-3 px-4 text-left">Tipo de Pago</td>
+      <td class="w-1/6 py-3 px-4 text-left">Estado</td>
+      <td class="w-1/6 py-3 px-4 text-center">Peso</td>
+      <td class="w-1/6 py-3 px-4 text-center">Acciones</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let package of paquetes" class="border-t border-gray-300 odd:bg-white even:bg-gray-100">
+      <td class="py-3 px-4 flex justify-center">{{ package.id }}</td>
+      <td class="py-3 px-4">{{ package.description }}</td>
+      <td class="py-3 px-4">{{ package.destinationAddress }}</td>
+      <td class="py-3 px-4">{{ package.originAddress }}</td>
+      <td class="py-3 px-4">{{ package.paymentType }}</td>
+      <td class="py-3 px-4">{{ package.status }}</td>
+      <td class="py-3 px-4">{{ package.weight }}</td>
+      <td class="py-3 px-4 flex justify-center">
+        <button
+        (click)="cancelPackage(package.id)" 
+        class="w-5 border h-5 border-solid border-blue-500 bg-red-500 mx-5 px-5 text-white flex justify-center">
+          X
+        </button>
+        <button class="w-5 border h-5 border-solid border-blue-500 px-5 bg-yellow-500"></button>
+      </td>
+  </tbody>
+</table>

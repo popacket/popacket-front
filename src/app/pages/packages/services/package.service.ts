@@ -12,7 +12,10 @@ export class PackageService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getListActiveShipment(id:number): Observable<Package[]>{
-    return this.httpClient.get<Package[]>('${this.baseURL}/packages/by-sender/${id}');
+  getListPendingPackages(id:number, status:string): Observable<Package[]>{
+    return this.httpClient.get<Package[]>(`${this.baseURL}/packages/by-shipment-to-collet?senderId=${id}&status=${status}`);
+  }
+  cancelPackage(id: number): Observable<Package> {
+    return this.httpClient.post<Package>(`${this.baseURL}/shipments/cancel/${id}`, {});
   }
 }
