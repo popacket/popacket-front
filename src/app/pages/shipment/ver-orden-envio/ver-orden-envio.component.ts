@@ -19,6 +19,10 @@ export class VerOrdenEnvioComponent {
   constructor(private shipmentService: ShipmentService) {}
 
   buscarOrdenEnvio() {
+    if (this.shipmentId < 0) {
+      console.error('El ID de envío no puede ser negativo');
+      return;
+    } else {
     this.shipmentService.getTrackingInfo(this.shipmentId).subscribe({
       next: (response) => {
         this.shipmentInfo = response;
@@ -27,5 +31,6 @@ export class VerOrdenEnvioComponent {
         console.error('Error al obtener la información de seguimiento', error);
       }
     });
+    }
   }
 }
