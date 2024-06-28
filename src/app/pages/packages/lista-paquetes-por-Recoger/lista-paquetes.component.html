@@ -19,14 +19,16 @@
       <td class="py-3 px-4">{{ package.originAddress }}</td>
       <td class="py-3 px-4">{{ package.paymentType }}</td>
       <td class="py-3 px-4">{{ package.status }}</td>
-      <td class="py-3 px-4">{{ package.weight }}</td>
+      <td class="py-3 px-4 text-center">{{ package.weight }}</td>
       <td class="py-3 px-4 flex justify-center">
         <button
-        (click)="cancelPackage(package.id)" 
-        class="w-5 border h-5 border-solid border-blue-500 bg-red-500 mx-5 px-5 text-white flex justify-center">
-          X
+        (click)="cancelPackage(package.id)"
+        class="w-5 border h-5 border-solid border-white rounded-md bg-red-500 mx-5 px-9 pb-6 text-white flex justify-center">
+        Cancelar
         </button>
-        <button class="w-5 border h-5 border-solid border-blue-500 px-5 bg-yellow-500"></button>
+        <button class="w-5 border h-5 border-solid border-white rounded-md px-9 pb-6 bg-green-700 text-white flex justify-center">
+          Detalle
+        </button>
       </td>
   </tbody>
 </table>
