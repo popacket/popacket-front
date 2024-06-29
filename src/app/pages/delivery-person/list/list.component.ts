@@ -13,10 +13,18 @@ import { DeliveryPersonResponse } from '../interface/delivery-person-response.in
 export class ListComponent implements OnInit {
 
   deliveryPersons: DeliveryPersonResponse[] = [];
-
+  showList: boolean = false;
   constructor(private deliveryPersonService: DeliveryPersonService) { }
 
   ngOnInit(): void {
+    this.getDeliveryPersons();
+  }
+
+  toggleList(): void { // Añadir esta función
+    this.showList = !this.showList;
+  }
+
+  getDeliveryPersons(): void {
     this.deliveryPersonService.getAllDeliveryPersons().subscribe({
       next: (response) => {
         this.deliveryPersons = response;
