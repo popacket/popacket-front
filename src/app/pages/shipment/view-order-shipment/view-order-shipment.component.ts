@@ -6,13 +6,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-ver-orden-envio',
+  selector: 'app-view-order-shipment',
   standalone: true,
   imports: [CommonModule, FormsModule, NavbarComponent],
-  templateUrl: './ver-orden-envio.component.html',
-  styleUrls: ['./ver-orden-envio.component.css']
+  templateUrl: './view-order-shipment.component.html',
+  styleUrls: ['./view-order-shipment.component.css']
 })
-export class VerOrdenEnvioComponent {
+export class ViewOrderShipment {
   shipmentId!: number;
   shipmentInfo?: shipmentResponse;
 

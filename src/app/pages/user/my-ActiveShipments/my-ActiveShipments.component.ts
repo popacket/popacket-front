@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../../../components/navbar/navbar.component';
-import { ListaPaquetesComponent } from '../../packages/lista-paquetes-por-Recoger/lista-paquetes.component';
+import { ListPackagesComponent} from '../../packages/list-packages-to-collect/list-packages.component';
 
 @Component({
   selector: 'app-my-ActiveShipments',
   standalone: true,
-  imports: [NavbarComponent,ListaPaquetesComponent],
+  imports: [NavbarComponent,ListPackagesComponent],
   templateUrl: './my-ActiveShipments.component.html',
   styleUrl: './my-ActiveShipments.component.css'
 })

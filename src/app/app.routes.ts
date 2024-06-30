@@ -1,9 +1,11 @@
 import { Routes, RouterOutlet } from '@angular/router';
 import { MyShipmentsComponent } from './pages/user/my-ActiveShipments/my-ActiveShipments.component';
-import { VerOrdenEnvioComponent } from './pages/shipment/ver-orden-envio/ver-orden-envio.component';
+import { ViewOrderShipment } from './pages/shipment/view-order-shipment/view-order-shipment.component';
 import { LoginComponent } from './pages/user/login/login.component'
 import { RegisterComponent } from './pages/user/register/register.component'
 import { ConfigureProfileComponent } from './pages/user/configure-profile/configure-profile.component';
+import { MakeShipmentComponent } from './pages/shipment/make-shipment/make-shipment.component';
+import { CostComponent } from './pages/shipment/cost/cost.component';
 
 export const routes: Routes = [
   {
@@ -12,7 +14,7 @@ export const routes: Routes = [
   },
   {
     path: 'viewordershipment',
-    component: VerOrdenEnvioComponent
+    component: ViewOrderShipment
   },
   {
     path: 'login',
@@ -24,6 +26,14 @@ export const routes: Routes = [
   },
   {
     path: 'configureprofile',
-    component:ConfigureProfileComponent
+    component: ConfigureProfileComponent
+  },
+  {
+    path: 'makeshipment',
+    component: MakeShipmentComponent
+  },
+  {
+    path: 'cost',
+    component: CostComponent
   }
 ];

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../../env/env';
 import { Observable } from 'rxjs';
 import { shipmentResponse } from '../interface/shipmentResponse.inteface';
+import { shipmentRequest } from '../interface/shipmentRequest.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,8 @@ export class ShipmentService {
   }
   getTrackingInfo(shipmentId: number): Observable<shipmentResponse> {
     return this.http.get<shipmentResponse>(`${this.apiUrl}/shipments/tracking/${shipmentId}`);
+  }
+  makeShipment(ShipmentRequest: shipmentRequest): Observable<shipmentResponse> {
+    return this.http.put<shipmentResponse>(`${this.apiUrl}/makeShipment`, ShipmentRequest);
   }
 }

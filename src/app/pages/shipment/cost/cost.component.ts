@@ -9,13 +9,13 @@ import {
 } from '@angular/forms';
 
 @Component({
-  selector: 'app-cotizador',
+  selector: 'app-cost',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './cotizador.component.html',
-  styleUrl: './cotizador.component.css'
+  templateUrl: './cost.component.html',
+  styleUrl: './cost.component.css'
 })
-export class CotizadorComponent {
+export class CostComponent {
   "quote" : number = 0;
   costForm: FormGroup;
   private shipmentService = inject(ShipmentService);

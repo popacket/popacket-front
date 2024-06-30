@@ -3,13 +3,13 @@ import { Package } from '../interface/Package.interface';
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 @Component({
-  selector: 'app-lista-paquetes',
+  selector: 'app-list-packages',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './lista-paquetes.component.html',
-  styleUrl: './lista-paquetes.component.css'
+  templateUrl: './list-packages.component.html',
+  styleUrl: './list-packages.component.css'
 })
-export class ListaPaquetesComponent implements OnInit{
+export class ListPackagesComponent implements OnInit{
   paquetes : Package[] = [];
   private packageService = inject(PackageService);
 

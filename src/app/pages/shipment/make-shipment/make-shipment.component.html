@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="container mx-auto p-8 bg-gray-200 rounded-lg shadow-md">
+  <h2 class="text-2xl mb-6 text-center">Realizar Envío</h2>
+
+  <div>
+    <ul class="steps">
+      <li [class.active]="currentStep === 1">Paso 1: Registrar Paquete</li>
+      <li [class.active]="currentStep === 2">Paso 2: Registrar Ubicación</li>
+      <li [class.active]="currentStep === 3">Paso 3: Registrar Envío</li>
+      <li [class.active]="currentStep === 4">Paso 4: Registrar Pago</li>
+    </ul>
+  </div>
+
+  <form [formGroup]="shipmentForm" (ngSubmit)="onSubmit()">
+    <app-register-package *ngIf="currentStep === 1"></app-register-package>
+    <app-register-location *ngIf="currentStep === 2"></app-register-location>
+    <app-register-shipment *ngIf="currentStep === 3"></app-register-shipment>
+    <app-register-payment *ngIf="currentStep === 4"></app-register-payment>
+
+    <div class="flex justify-between mt-4">
+      <button type="button" (click)="prevStep()" [disabled]="currentStep === 1" class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700">Atrás</button>
+      <button type="button" (click)="nextStep()" [disabled]="currentStep === 4" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700">Siguiente</button>
+      <button type="submit" [disabled]="!shipmentForm.valid || currentStep !== 3" class="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700">Registrar Envío</button>
+    </div>
+  </form>
+</div>
