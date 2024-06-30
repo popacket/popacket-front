@@ -1,1 +1,48 @@
-<p>rate works!</p>
+<div class="max-w-2xl mx-auto p-4 shadow-lg bg-custom-white rounded-lg">
+    <form [formGroup]="ratingForm" (ngSubmit)="submitRating()" class="space-y-6">
+        <h2 class="text-lg font-semibold text-gray-900">Calificar Envío</h2>
+
+        <!-- Input para el ID del envío -->
+        <div>
+            <label for="shipmentId" class="block text-sm font-medium text-gray-700">ID del Envío</label>
+            <input type="text" formControlName="shipmentId" id="shipmentId"
+                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue sm:text-sm"
+                   placeholder="Ingrese el ID del envío">
+            <div *ngIf="ratingForm.get('shipmentId')?.touched && ratingForm.get('shipmentId')?.errors" 
+                 class="text-red-500 text-sm mt-1">
+                El ID del envío es requerido.
+            </div>
+        </div>
+
+        <!-- Input para la calificación -->
+        <div>
+            <label for="rating" class="block text-sm font-medium text-gray-700">Calificación</label>
+            <input type="number" formControlName="rating" id="rating"
+                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue sm:text-sm"
+                   placeholder="Califique de 1 a 10">
+            <div *ngIf="ratingForm.get('rating')?.touched && ratingForm.get('rating')?.errors" 
+                 class="text-red-500 text-sm mt-1">
+                La calificación debe estar entre 1 y 10.
+            </div>
+        </div>
+
+        <!-- Textarea para comentarios -->
+        <div>
+            <label for="comments" class="block text-sm font-medium text-gray-700">Comentarios</label>
+            <textarea formControlName="comments" id="comments"
+                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue sm:text-sm"
+                      placeholder="Agregue cualquier comentario aquí"></textarea>
+            <div *ngIf="ratingForm.get('comments')?.touched && ratingForm.get('comments')?.errors" 
+                 class="text-red-500 text-sm mt-1">
+                Los comentarios deben tener menos de 255 caracteres.
+            </div>
+        </div>
+
+        <!-- Botón de enviar -->
+        <div class="flex justify-center mt-4">
+            <button type="submit" class="px-4 py-2 bg-custom-blue text-custom-white font-medium rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-custom-blue focus:ring-offset-2">
+                Enviar Calificación
+            </button>
+        </div>
+    </form>
+</div>

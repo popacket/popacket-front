@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       colors: {
         success: colors.green,
-        primary: colors.blue
+        primary: colors.blue,
+        'custom-blue': '#3249C2',
+        'custom-white': '#FFFFFF'
       }
     },
   },
