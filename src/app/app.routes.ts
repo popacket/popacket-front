@@ -3,6 +3,7 @@ import { MyShipmentsComponent } from './pages/user/my-ActiveShipments/my-ActiveS
 import { VerOrdenEnvioComponent } from './pages/shipment/ver-orden-envio/ver-orden-envio.component';
 import { LoginComponent } from './pages/user/login/login.component'
 import { RegisterComponent } from './pages/user/register/register.component'
+import { ConfigureProfileComponent } from './pages/user/configure-profile/configure-profile.component';
 
 export const routes: Routes = [
   {
@@ -10,7 +11,7 @@ export const routes: Routes = [
     component: MyShipmentsComponent
   },
   {
-    path: 'verordenenvio',
+    path: 'viewordershipment',
     component: VerOrdenEnvioComponent
   },
   {
@@ -20,5 +21,9 @@ export const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'configureprofile',
+    component:ConfigureProfileComponent
   }
 ];

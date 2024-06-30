@@ -1,13 +1,13 @@
-<table class="table min-w-full flex border border-solid border-1 border-blue-200 ">
-  <thead class="bg-blue-500 text-white h-5">
+<table class="table min-w-full flex border border-solid border-1 border-azul m-9">
+  <thead class="bg-azul text-white h-5">
     <tr class="px-20">
-      <td class="w-1/6 py-3 px-4 text-center" >ID</td>
-      <td class="w-1/6 py-3 px-4 text-left">Descripción</td>
-      <td class="w-1/6 py-3 px-4 text-left">Dirección de destino</td>
-      <td class="w-1/6 py-3 px-4 text-left">Dirección de origen</td>
-      <td class="w-1/6 py-3 px-4 text-left">Tipo de Pago</td>
-      <td class="w-1/6 py-3 px-4 text-left">Estado</td>
-      <td class="w-1/6 py-3 px-4 text-center">Peso</td>
+      <td class="w-1/6 py-3 px-4 text-center border-r border-solid border-blanco" >ID</td>
+      <td class="w-1/6 py-3 px-4 text-left border-r border-solid border-blanco">Descripción</td>
+      <td class="w-1/6 py-3 px-4 text-left border-r border-solid border-blanco">Dirección de destino</td>
+      <td class="w-1/6 py-3 px-4 text-left border-r border-solid border-blanco">Dirección de origen</td>
+      <td class="w-1/6 py-3 px-4 text-left border-r border-solid border-blanco">Tipo de Pago</td>
+      <td class="w-1/6 py-3 px-4 text-center border-r border-solid border-blanco">Estado</td>
+      <td class="w-1/6 py-3 px-4 text-center border-r border-solid border-blanco">Peso</td>
       <td class="w-1/6 py-3 px-4 text-center">Acciones</td>
     </tr>
   </thead>
@@ -18,7 +18,7 @@
       <td class="py-3 px-4">{{ package.destinationAddress }}</td>
       <td class="py-3 px-4">{{ package.originAddress }}</td>
       <td class="py-3 px-4">{{ package.paymentType }}</td>
-      <td class="py-3 px-4">{{ package.status }}</td>
+      <td class="py-3 px-4 text-center">{{ package.status }}</td>
       <td class="py-3 px-4 text-center">{{ package.weight }}</td>
       <td class="py-3 px-4 flex justify-center">
         <button

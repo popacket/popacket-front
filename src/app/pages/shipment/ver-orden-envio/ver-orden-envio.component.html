@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container m-auto flex flex-col py-5 justify-center items-center">
   <h2 class="text-center my-5 text-4xl">Ver orden de envío</h2>
-  <div class="flex flex-col justify-center border border-solid border-blue-500 rounded-md shadow-2xl">
+  <div class="flex flex-col justify-center border border-solid border-azul rounded-md shadow-2xl">
     <form (ngSubmit)="buscarOrdenEnvio()" class="flex flex-col justify-center items-center py-5 my-2">
       <label for="shipmentId" class="">Ingrese su ID de envío</label>
       <input
@@ -10,11 +10,11 @@
         name="shipmentId"
         min="0"
         required
-        class="mx-4 rounded-full my-5 border boder-solid border-blue-500 px-3 focus:outline-none"
+        class="mx-4 rounded-full my-5 border boder-solid border-azul px-3 focus:outline-none"
         placeholder="(Id)">
       <button
         type="submit"
-        class="flex focus:ring border shadow-md rounded-lg bg-blue-500 px-5 h-9 w-20 text-white hover:bg-blue-900 justify-center items-center">
+        class="flex focus:ring border shadow-md rounded-lg bg-azul px-5 h-9 w-20 text-white hover:bg-blue-900 justify-center items-center">
         Buscar
       </button>
     </form>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
-// import { UserService } from '../services/user.service';
+import { UserService } from '../services/user.service';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -27,7 +27,7 @@ export class RegisterComponent {
       phone: ['', Validators.required]
     });
   }
-  // private userService = inject(UserService);
+  private userService = inject(UserService);
 
   onSubmit = () => {
     console.log(this.userForm.value)
