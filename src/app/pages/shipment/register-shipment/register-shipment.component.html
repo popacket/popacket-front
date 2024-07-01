@@ -1,1 +1,80 @@
-<p>registrar-envio works!</p>
+<form [formGroup]="shipmentForm" (ngSubmit)="onSubmit()">
+  <div class="container m-auto p-8 bg-gray-200 rounded-lg shadow-md">
+    <h6 class="text-xl mb-4">Registrar Envío</h6>
+
+    <div class="mb-4">
+      <label for="packageId" class="block mb-2">ID del Paquete:</label>
+      <input
+        id="packageId"
+        type="number"
+        formControlName="packageId"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="shipmentForm.get('packageId').invalid && shipmentForm.get('packageId').touched" class="text-red-500">
+        ID del Paquete es requerido
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="originLocationId" class="block mb-2">ID de la Ubicación de Origen:</label>
+      <input
+        id="originLocationId"
+        type="number"
+        formControlName="originLocationId"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="shipmentForm.get('originLocationId').invalid && shipmentForm.get('originLocationId').touched" class="text-red-500">
+        ID de la Ubicación de Origen es requerido
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="destinationLocationId" class="block mb-2">ID de la Ubicación de Destino:</label>
+      <input
+        id="destinationLocationId"
+        type="number"
+        formControlName="destinationLocationId"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="shipmentForm.get('destinationLocationId').invalid && shipmentForm.get('destinationLocationId').touched" class="text-red-500">
+        ID de la Ubicación de Destino es requerido
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="status" class="block mb-2">Estado del Envío:</label>
+      <input
+        id="status"
+        type="text"
+        formControlName="status"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="shipmentForm.get('status').invalid && shipmentForm.get('status').touched" class="text-red-500">
+        Estado del Envío es requerido
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="deliveryPersonId" class="block mb-2">ID del Repartidor:</label>
+      <input
+        id="deliveryPersonId"
+        type="number"
+        formControlName="deliveryPersonId"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="shipmentForm.get('deliveryPersonId').invalid && shipmentForm.get('deliveryPersonId').touched" class="text-red-500">
+        ID del Repartidor es requerido
+      </div>
+    </div>
+
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        [disabled]="!shipmentForm.valid"
+        class="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700"
+      >
+        Registrar Envío
+      </button>
+    </div>
+  </div>
+</form>

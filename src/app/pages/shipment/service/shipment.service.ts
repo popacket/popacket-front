@@ -20,7 +20,7 @@ export class ShipmentService {
   getTrackingInfo(shipmentId: number): Observable<shipmentResponse> {
     return this.http.get<shipmentResponse>(`${this.apiUrl}/shipments/tracking/${shipmentId}`);
   }
-  makeShipment(ShipmentRequest: shipmentRequest): Observable<shipmentResponse> {
-    return this.http.put<shipmentResponse>(`${this.apiUrl}/makeShipment`, ShipmentRequest);
+  registerShipment(shipment: shipmentRequest): Observable<any> {
+    return this.http.put(`${this.apiUrl}/shipments/makeShipment`, shipment);
   }
 }

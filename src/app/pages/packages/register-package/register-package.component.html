@@ -1,1 +1,118 @@
-<p>registrar-paquete works!</p>
+<form [formGroup]="packageForm" (ngSubmit)="onSubmit()">
+  <div class="container m-auto p-8 bg-gray-200 rounded-lg shadow-md">
+    <h6 class="text-xl mb-4">Registrar Paquete</h6>
+
+    <div class="mb-4">
+      <label for="senderId" class="block mb-2">ID del Remitente:</label>
+      <input
+        id="senderId"
+        type="number"
+        formControlName="senderId"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="senderId.invalid && senderId.touched" class="text-red-500">
+        ID del Remitente es requerido
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="recipientId" class="block mb-2">ID del Destinatario:</label>
+      <input
+        id="recipientId"
+        type="number"
+        formControlName="recipientId"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="recipientId.invalid && recipientId.touched" class="text-red-500">
+        ID del Destinatario es requerido
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="description" class="block mb-2">Descripción:</label>
+      <textarea
+        id="description"
+        formControlName="description"
+        class="w-full p-2 border border-gray-300 rounded"
+      ></textarea>
+      <div *ngIf="description.invalid && description.touched" class="text-red-500">
+        Descripción es requerida
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="weight" class="block mb-2">Peso:</label>
+      <input
+        id="weight"
+        type="number"
+        formControlName="weight"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="weight.invalid && weight.touched" class="text-red-500">
+        Peso es requerido
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="status" class="block mb-2">Estado:</label>
+      <input
+        id="status"
+        type="text"
+        formControlName="status"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="status.invalid && status.touched" class="text-red-500">
+        Estado es requerido
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="paymentType" class="block mb-2">Tipo de Pago:</label>
+      <input
+        id="paymentType"
+        type="text"
+        formControlName="paymentType"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="paymentType.invalid && paymentType.touched" class="text-red-500">
+        Tipo de Pago es requerido
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="originAddress" class="block mb-2">Dirección de Origen:</label>
+      <input
+        id="originAddress"
+        type="text"
+        formControlName="originAddress"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="originAddress.invalid && originAddress.touched" class="text-red-500">
+        Dirección de Origen es requerida
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label for="destinationAddress" class="block mb-2">Dirección de Destino:</label>
+      <input
+        id="destinationAddress"
+        type="text"
+        formControlName="destinationAddress"
+        class="w-full p-2 border border-gray-300 rounded"
+      >
+      <div *ngIf="destinationAddress.invalid && destinationAddress.touched" class="text-red-500">
+        Dirección de Destino es requerida
+      </div>
+    </div>
+    
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        [disabled]="!packageForm.valid"
+        class="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700"
+      >
+        Registrar Paquete
+      </button>
+    </div>
+  </div>
+</form>

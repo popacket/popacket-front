@@ -4,23 +4,22 @@
 
   <div>
     <ul class="steps">
-      <li [class.active]="currentStep === 1">Paso 1: Registrar Paquete</li>
-      <li [class.active]="currentStep === 2">Paso 2: Registrar Ubicación</li>
-      <li [class.active]="currentStep === 3">Paso 3: Registrar Envío</li>
-      <li [class.active]="currentStep === 4">Paso 4: Registrar Pago</li>
+      <li [ngClass]="{ 'active': currentStep === 1, 'inactive': currentStep !== 1 }">Registrar Paquete ></li>
+      <li [ngClass]="{ 'active': currentStep === 2, 'inactive': currentStep !== 2 }">Registrar Ubicación ></li>
+      <li [ngClass]="{ 'active': currentStep === 3, 'inactive': currentStep !== 3 }">Registrar Envío ></li>
+      <li [ngClass]="{ 'active': currentStep === 4, 'inactive': currentStep !== 4 }">Registrar Pago</li>
     </ul>
   </div>
 
-  <form [formGroup]="shipmentForm" (ngSubmit)="onSubmit()">
-    <app-register-package *ngIf="currentStep === 1"></app-register-package>
-    <app-register-location *ngIf="currentStep === 2"></app-register-location>
-    <app-register-shipment *ngIf="currentStep === 3"></app-register-shipment>
-    <app-register-payment *ngIf="currentStep === 4"></app-register-payment>
+  <div [ngSwitch]="currentStep">
+    <app-register-package *ngSwitchCase="1" (formValid)="handleFormValid($event, 1)"></app-register-package>
+    <app-register-location *ngSwitchCase="2" (formValid)="handleFormValid($event, 2)"></app-register-location>
+    <app-register-shipment *ngSwitchCase="3" (formValid)="handleFormValid($event, 3)"></app-register-shipment>
+    <app-register-payment *ngSwitchCase="4" (formValid)="handleFormValid($event, 4)"></app-register-payment>
+  </div>
 
-    <div class="flex justify-between mt-4">
-      <button type="button" (click)="prevStep()" [disabled]="currentStep === 1" class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700">Atrás</button>
-      <button type="button" (click)="nextStep()" [disabled]="currentStep === 4" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700">Siguiente</button>
-      <button type="submit" [disabled]="!shipmentForm.valid || currentStep !== 3" class="py-2 px-4 bg-green-500 text-white rounded hover:bg-green-700">Registrar Envío</button>
-    </div>
-  </form>
+  <div class="flex justify-between mt-4">
+    <button type="button" (click)="prevStep()" [disabled]="currentStep === 1" class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700">Atrás</button>
+    <button type="button" (click)="nextStep()" [disabled]="!isStepValid[currentStep]" class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700">Siguiente</button>
+  </div>
 </div>

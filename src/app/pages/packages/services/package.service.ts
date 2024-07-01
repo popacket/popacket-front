@@ -3,6 +3,7 @@ import { environment } from '../../../../env/env';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Package } from '../interface/Package.interface';
+import { PackageRequest } from '../interface/PackageResquest.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,5 +18,8 @@ export class PackageService {
   }
   cancelPackage(id: number): Observable<Package> {
     return this.httpClient.post<Package>(`${this.baseURL}/shipments/cancel/${id}`, {});
+  }
+  createPackage (pack : PackageRequest): Observable<Package> {
+    return this.httpClient.post<Package>(`${this.baseURL}/payments`, pack);
   }
 }
