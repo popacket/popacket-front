@@ -24,7 +24,7 @@ import { RegisterPackageComponent } from '../../packages/register-package/regist
   styleUrls: ['./make-shipment.component.css']
 })
 export class MakeShipmentComponent {
-  currentStep : number = 2;
+  currentStep : number = 3;
   isStepValid : boolean[] = [ false, false, false, false, false ];
 
   nextStep(): void {

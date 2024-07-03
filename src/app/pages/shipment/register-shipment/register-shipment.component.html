@@ -10,34 +10,34 @@
         formControlName="packageId"
         class="w-full p-2 border border-gray-300 rounded"
       >
-      <div *ngIf="shipmentForm.get('packageId').invalid && shipmentForm.get('packageId').touched" class="text-red-500">
+      <div *ngIf="packageId?.invalid && packageId?.touched" class="text-red-500">
         ID del Paquete es requerido
       </div>
     </div>
 
     <div class="mb-4">
-      <label for="originLocationId" class="block mb-2">ID de la Ubicación de Origen:</label>
+      <label for="originLocationAddress" class="block mb-2">Dirección de la Ubicación de Origen:</label>
       <input
-        id="originLocationId"
-        type="number"
-        formControlName="originLocationId"
+        id="originLocationAddress"
+        type="text"
+        formControlName="originLocationAddress"
         class="w-full p-2 border border-gray-300 rounded"
       >
-      <div *ngIf="shipmentForm.get('originLocationId').invalid && shipmentForm.get('originLocationId').touched" class="text-red-500">
-        ID de la Ubicación de Origen es requerido
+      <div *ngIf="originLocationAddress?.invalid && originLocationAddress?.touched" class="text-red-500">
+        Dirección de la Ubicación de Origen es requerida
       </div>
     </div>
 
     <div class="mb-4">
-      <label for="destinationLocationId" class="block mb-2">ID de la Ubicación de Destino:</label>
+      <label for="destinationLocationAddress" class="block mb-2">Dirección de la Ubicación de Destino:</label>
       <input
-        id="destinationLocationId"
-        type="number"
-        formControlName="destinationLocationId"
+        id="destinationLocationAddress"
+        type="text"
+        formControlName="destinationLocationAddress"
         class="w-full p-2 border border-gray-300 rounded"
       >
-      <div *ngIf="shipmentForm.get('destinationLocationId').invalid && shipmentForm.get('destinationLocationId').touched" class="text-red-500">
-        ID de la Ubicación de Destino es requerido
+      <div *ngIf="destinationLocationAddress?.invalid && destinationLocationAddress?.touched" class="text-red-500">
+        Dirección de la Ubicación de Destino es requerida
       </div>
     </div>
 
@@ -49,20 +49,21 @@
         formControlName="status"
         class="w-full p-2 border border-gray-300 rounded"
       >
-      <div *ngIf="shipmentForm.get('status').invalid && shipmentForm.get('status').touched" class="text-red-500">
+      <div *ngIf="status?.invalid && status?.touched" class="text-red-500">
         Estado del Envío es requerido
       </div>
     </div>
 
     <div class="mb-4">
-      <label for="deliveryPersonId" class="block mb-2">ID del Repartidor:</label>
-      <input
+      <label for="deliveryPersonId" class="block mb-2">Repartidor:</label>
+      <select
         id="deliveryPersonId"
-        type="number"
         formControlName="deliveryPersonId"
         class="w-full p-2 border border-gray-300 rounded"
       >
-      <div *ngIf="shipmentForm.get('deliveryPersonId').invalid && shipmentForm.get('deliveryPersonId').touched" class="text-red-500">
+        <option *ngFor="let person of deliveryPersons" [value]="person.id">{{ person.name }}, {{person.type}}, {{person.phone}}</option>
+      </select>
+      <div *ngIf="deliveryPersonId?.invalid && deliveryPersonId?.touched" class="text-red-500">
         ID del Repartidor es requerido
       </div>
     </div>

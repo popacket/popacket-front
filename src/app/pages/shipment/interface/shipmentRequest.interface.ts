@@ -1,7 +1,7 @@
 export interface shipmentRequest {
     packageId: number,
-    originLocationId: number,
-    destinationLocationId: number,
+    originLocationAddress: string,
+    destinationLocationAddress: string,
     status: string,
     deliveryPersonId: number
 }
