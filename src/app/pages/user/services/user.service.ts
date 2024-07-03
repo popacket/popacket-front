@@ -2,8 +2,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../../../env/env';
 import { UserRequest } from '../interface/user-request.interface';
-import { Observable, catchError, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 import { UserResponse } from '../interface/user-response.interface';
+import { LoginRequest } from '../interface/login-request.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,13 @@ import { UserResponse } from '../interface/user-response.interface';
 export class UserService {
 
   private url = environment.baseUrl;
-  constructor() { }
+  currentUserData : BehaviorSubject<string> = new BehaviorSubject<string>("");
+  constructor() {
+    this.currentUserData = new BehaviorSubject<string>(sessionStorage.getItem("token")||"");
+  }
 
   httpClient = inject(HttpClient);
+
 
   private handleError(error:HttpErrorResponse){
     if(error.status===0){
@@ -29,10 +34,27 @@ export class UserService {
   }
   getUserProfile(id:number): Observable<UserResponse> {
     // Suponiendo que la URL para obtener el perfil de usuario es /users/profile
-    return this.http.get<UserResponse>(`${this.url}/users/get-user/${id}`);
+    return this.httpClient.get<UserResponse>(`${this.url}/users/get-user/${id}`);
   }
 
   updateUserProfile(updatedUser: UserRequest): Observable<UserResponse> {
-    return this.http.post<UserResponse>(`${this.url}/users/configure_user`, updatedUser);
+    return this.httpClient.post<UserResponse>(`${this.url}/users/configure_user`, updatedUser);
+  }
+
+  iniciarSesion(usuario: LoginRequest):Observable<any>{
+    return this.httpClient.post<any>(`${this.url}/users/login`, usuario).pipe(
+      tap((userData) => {
+        console.log("User Data : "+userData);
+        // sessionStorage.setItem("token", userData.token);
+        // this.currentUserData.next(userData.token);
+        // this.currentUserLoginOn.next(true);
+      }),
+      map((userData) => userData.token),
+      catchError(this.handleError)
+    )
+  }
+
+  get userData():Observable<String>{
+    return this.currentUserData.asObservable();
   }
 }

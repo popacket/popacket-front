@@ -6,7 +6,8 @@ import { RegisterComponent } from './pages/user/register/register.component'
 import { ConfigureProfileComponent } from './pages/user/configure-profile/configure-profile.component';
 import { MakeShipmentComponent } from './pages/shipment/make-shipment/make-shipment.component';
 import { CostComponent } from './pages/shipment/cost/cost.component';
-
+import { RegisterComponent as DeliveryPersonRegisterComponent} from './pages/delivery-person/register/register.component'
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,9 @@ export const routes: Routes = [
   {
     path: 'deliveryperson/register',
     component: DeliveryPersonRegisterComponent
-
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ];
