@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavbarComponent } from '../../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [],
+  imports: [NavbarComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
-export class UserComponent {
+export class UserComponent implements OnInit{
 
+  constructor (){}
+
+  ngOnInit(): void {
+
+  }
 }
