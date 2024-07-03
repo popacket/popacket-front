@@ -7,6 +7,7 @@ import { ConfigureProfileComponent } from './pages/user/configure-profile/config
 import { MakeShipmentComponent } from './pages/shipment/make-shipment/make-shipment.component';
 import { CostComponent } from './pages/shipment/cost/cost.component';
 
+
 export const routes: Routes = [
   {
     path: 'myactiveshipments',
@@ -35,5 +36,10 @@ export const routes: Routes = [
   {
     path: 'cost',
     component: CostComponent
+  },
+  {
+    path: 'deliveryperson/register',
+    component: DeliveryPersonRegisterComponent
+
   }
 ];
