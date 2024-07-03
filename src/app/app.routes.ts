@@ -5,6 +5,7 @@ import { RegisterComponent } from './pages/user/register/register.component'
 import { RegisterComponent as DeliveryPersonRegisterComponent} from './pages/delivery-person/register/register.component'
 import { HomeComponent } from './pages/home/home.component'
 import { PreferencesComponent  } from './pages/user/preferences/preferences.component';
+import { RescheduleShipmentComponent } from './pages/shipment/rescheduleshipment/rescheduleshipment.component';
 export const routes: Routes = [
   {
     path: 'login',
@@ -29,5 +30,9 @@ export const routes: Routes = [
   {
     path: 'preferences/:userId',
     component: PreferencesComponent
+  },
+  {
+    path: 'reschedule',  
+    component: RescheduleShipmentComponent
   }
 ];

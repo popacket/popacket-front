@@ -7,13 +7,13 @@ import { Router, RouterLinkWithHref } from '@angular/router';
 @Component({
   selector: 'app-rate-shipment',
   templateUrl: './rate.component.html',
-  styleUrls: ['./rate.component.css'], // Asegúrate de que esto es correcto
+  styleUrls: ['./rate.component.css'], 
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLinkWithHref]
 })
 export class RateComponent implements OnInit {
     ratingForm!: FormGroup;
-    message: string = ''; // Mensaje para mostrar en la UI
+    message: string = ''; 
 
     constructor(
         private fb: FormBuilder, 
