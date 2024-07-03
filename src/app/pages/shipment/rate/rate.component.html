@@ -1,15 +1,15 @@
-<div class="max-w-2xl mx-auto p-4 shadow-lg bg-custom-white rounded-lg">
-    <form [formGroup]="ratingForm" (ngSubmit)="submitRating()" class="space-y-6">
-        <h2 class="text-lg font-semibold text-gray-900">Calificar Envío</h2>
+<div class="flex justify-center items-center min-h-screen bg-gray-200">
+    <form [formGroup]="ratingForm" (ngSubmit)="submitRating()" class="w-full max-w-lg p-8 space-y-6 bg-white rounded-lg shadow-md border-2 border-blue-500">
+        <h2 class="text-lg font-semibold text-center text-blue-500">Calificar Envío</h2>
 
         <!-- Input para el ID del envío -->
         <div>
             <label for="shipmentId" class="block text-sm font-medium text-gray-700">ID del Envío</label>
             <input type="text" formControlName="shipmentId" id="shipmentId"
-                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue sm:text-sm"
+                   class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                    placeholder="Ingrese el ID del envío">
             <div *ngIf="ratingForm.get('shipmentId')?.touched && ratingForm.get('shipmentId')?.errors" 
-                 class="text-red-500 text-sm mt-1">
+                 class="mt-1 text-sm text-red-600">
                 El ID del envío es requerido.
             </div>
         </div>
@@ -18,10 +18,10 @@
         <div>
             <label for="rating" class="block text-sm font-medium text-gray-700">Calificación</label>
             <input type="number" formControlName="rating" id="rating"
-                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue sm:text-sm"
+                   class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                    placeholder="Califique de 1 a 10">
             <div *ngIf="ratingForm.get('rating')?.touched && ratingForm.get('rating')?.errors" 
-                 class="text-red-500 text-sm mt-1">
+                 class="mt-1 text-sm text-red-600">
                 La calificación debe estar entre 1 y 10.
             </div>
         </div>
@@ -30,17 +30,23 @@
         <div>
             <label for="comments" class="block text-sm font-medium text-gray-700">Comentarios</label>
             <textarea formControlName="comments" id="comments"
-                      class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue sm:text-sm"
+                      class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                       placeholder="Agregue cualquier comentario aquí"></textarea>
             <div *ngIf="ratingForm.get('comments')?.touched && ratingForm.get('comments')?.errors" 
-                 class="text-red-500 text-sm mt-1">
+                 class="mt-1 text-sm text-red-600">
                 Los comentarios deben tener menos de 255 caracteres.
             </div>
         </div>
+        <!-- Mensaje de éxito/error -->
+        <div *ngIf="message" class="text-center font-medium py-2" 
+             [class.text-green-500]="message.startsWith('Calificación enviada')"
+             [class.text-red-500]="message.startsWith('Error') || message.startsWith('Por favor')">
+            {{ message }}
+        </div>
 
         <!-- Botón de enviar -->
-        <div class="flex justify-center mt-4">
-            <button type="submit" class="px-4 py-2 bg-custom-blue text-custom-white font-medium rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-custom-blue focus:ring-offset-2">
+        <div class="flex justify-center">
+            <button type="submit" class="px-6 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                 Enviar Calificación
             </button>
         </div>

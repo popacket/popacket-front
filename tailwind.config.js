@@ -10,8 +10,6 @@ module.exports = {
       colors: {
         success: colors.green,
         primary: colors.blue,
-        'custom-blue': '#3249C2',
-        'custom-white': '#FFFFFF'
       }
     },
   },

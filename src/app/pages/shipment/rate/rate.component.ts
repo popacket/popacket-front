@@ -13,11 +13,12 @@ import { Router, RouterLinkWithHref } from '@angular/router';
 })
 export class RateComponent implements OnInit {
     ratingForm!: FormGroup;
+    message: string = ''; // Mensaje para mostrar en la UI
 
     constructor(
         private fb: FormBuilder, 
         private shipmentService: ShipmentService,
-        private router: Router  // Solo si necesitas realizar navegación
+        private router: Router
     ) {}
 
     ngOnInit() {
@@ -36,18 +37,18 @@ export class RateComponent implements OnInit {
         if (this.ratingForm.valid) {
             this.shipmentService.rateShipment(this.ratingForm.value).subscribe({
                 next: (response) => {
-                    console.log('Rating submitted successfully', response);
-                    // Aquí puedes agregar alguna notificación o redireccionamiento
-                    this.router.navigate(['/success']);  // Ejemplo de redirección
+                    // Navegar a la página de éxito o mostrar mensaje de éxito
+                    this.message = "Calificación enviada con éxito.";
+                    this.router.navigate(['/success']);
                 },
                 error: (error) => {
-                    console.error('Failed to submit rating', error);
-                    // Aquí podrías manejar errores, mostrar un mensaje al usuario, etc.
+                    // Mostrar mensaje de error
+                    this.message = "Error al enviar la calificación. Por favor, inténtelo de nuevo.";
                 }
             });
         } else {
-            // Asegura que todos los campos son tocados para mostrar errores
             this.ratingForm.markAllAsTouched();
+            this.message = "Por favor, complete todos los campos correctamente.";
         }
     }
 }
