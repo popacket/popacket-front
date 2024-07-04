@@ -1,3 +1,5 @@
+import { RateComponent } from './pages/shipment/rate/rate.component';
+import { Routes } from '@angular/router';
 import { Routes, RouterOutlet } from '@angular/router';
 import { MyShipmentsComponent } from './pages/user/my-ActiveShipments/my-ActiveShipments.component';
 import { ViewOrderShipment } from './pages/shipment/view-order-shipment/view-order-shipment.component';
@@ -7,8 +9,8 @@ import { ConfigureProfileComponent } from './pages/user/configure-profile/config
 import { MakeShipmentComponent } from './pages/shipment/make-shipment/make-shipment.component';
 import { CostComponent } from './pages/shipment/cost/cost.component';
 import { RegisterComponent as DeliveryPersonRegisterComponent} from './pages/delivery-person/register/register.component'
-import { HomeComponent } from './pages/home/home.component';
-
+import { HomeComponent } from './pages/home/home.component'
+import { PreferencesComponent  } from './pages/user/preferences/preferences.component';
 export const routes: Routes = [
   {
     path: 'myactiveshipments',
@@ -45,5 +47,13 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'rate', 
+    component: RateComponent
+  },
+  {
+    path: 'preferences/:userId',
+    component: PreferencesComponent
   }
 ];

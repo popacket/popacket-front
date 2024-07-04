@@ -5,6 +5,7 @@ import { UserRequest } from '../interface/user-request.interface';
 import { BehaviorSubject, Observable, catchError, map, tap, throwError } from 'rxjs';
 import { UserResponse } from '../interface/user-response.interface';
 import { LoginRequest } from '../interface/login-request.interface';
+import { UserPreferences } from '../interface/preferences-request.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,12 @@ export class UserService {
     )
   }
 
+  updatePreferences(userId: number, preferences: UserPreferences): Observable<string> {
+    return this.httpClient.put<string>(`${this.url}/users/preferences/${userId}`, preferences).pipe(
+      catchError(this.handleError)
+    );
+  }
+  
   get userData():Observable<String>{
     return this.currentUserData.asObservable();
   }
