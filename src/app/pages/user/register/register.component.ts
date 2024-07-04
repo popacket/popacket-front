@@ -34,25 +34,12 @@ export class RegisterComponent {
 		});
 	}
 
-  constructor(
-    private fb: FormBuilder,
-  ) {
-    this.userForm = this.fb.group({
-      document: ['', Validators.required],
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required],
-      pass: ['', Validators.required],
-      phone: ['', Validators.required]
-    });
-  }
   private userService = inject(UserService);
-  
+
 	controlHasError(control: string, error: string) {
 		return this.userForm.controls[control].hasError(error);
 	}
-	private userService = inject(UserService);
-  
+
 	onSubmit = () => {
 		console.log(this.userForm.value);
 		if (this.userForm.invalid) {
