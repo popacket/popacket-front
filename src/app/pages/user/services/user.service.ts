@@ -33,6 +33,14 @@ export class UserService {
     return this.httpClient.post<UserResponse>(`${this.url}/users`, newUser).pipe(
       catchError(this.handleError));
   }
+  getUserProfile(id:number): Observable<UserResponse> {
+    // Suponiendo que la URL para obtener el perfil de usuario es /users/profile
+    return this.httpClient.get<UserResponse>(`${this.url}/users/get-user/${id}`);
+  }
+
+  updateUserProfile(updatedUser: UserRequest): Observable<UserResponse> {
+    return this.httpClient.post<UserResponse>(`${this.url}/users/configure_user`, updatedUser);
+  }
 
   iniciarSesion(usuario: LoginRequest):Observable<any>{
     return this.httpClient.post<any>(`${this.url}/users/login`, usuario).pipe(
