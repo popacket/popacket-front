@@ -16,6 +16,9 @@ export class DeliveryPersonService {
   registerDeliveryPerson(newDeliveryPerson: DeliveryPersonRequest): Observable<DeliveryPersonResponse> {
     return this.http.post<DeliveryPersonResponse>(`${this.url}/deliveryPerson`, newDeliveryPerson);
   }
+  getDeliveryPersons(): Observable<DeliveryPersonResponse[]> {
+    return this.http.get<DeliveryPersonResponse[]>(`${this.url}/deliveryPerson/getAll`);
+  }
 
 }
 

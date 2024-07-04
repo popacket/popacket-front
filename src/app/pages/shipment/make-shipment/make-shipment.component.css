@@ -1,0 +1,13 @@
+.steps li {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.steps li.active {
+  font-weight: bold;
+}
+
+.steps li.inactive {
+  color: gray;
+}
