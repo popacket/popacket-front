@@ -1,12 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { UserService } from '../services/user.service';
-import {
-  ReactiveFormsModule,
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-recovery',
@@ -44,6 +39,7 @@ export class RecoveryComponent {
           next: () => {
             this.successMessage = 'Solicitud enviada con éxito. Por favor, revisa tu correo.';
             this.errorMessage = '';
+            this.resetRequested = true; // Mostrar formulario de restablecimiento de contraseña
           },
           error: (error) => {
             this.errorMessage = 'Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.';

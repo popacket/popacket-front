@@ -1,33 +1,83 @@
-<div class="w-screen h-screen dark:bg-gray-700 relative">
-  <div class="relative w-full sm:w-7/12 md:w-6/12 lg:w-6/12 m-auto">
-    <header class="pt-6 pb-6 flex justify-center">
-      <img loading="lazy" class="w-56" src="/assets/img/logo.png" alt="logo">
-    </header>
-    <div class="max-w-2xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-      <h2 class="text-center text-lg font-semibold text-gray-700 capitalize dark:text-white">Recuperar Contraseña</h2>
-
-      <form [formGroup]="recoveryForm" (ngSubmit)="onSubmit()" autocomplete="off">
-        <div class="grid grid-cols-1 gap-2 mt-4 sm:grid-cols-2">
-          <div>
-            <label class="text-gray-700 dark:text-gray-200" for="email">Correo Electrónico</label>
-            <input id="email" type="email" formControlName="email"
-              class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
-            <div *ngIf="recoveryForm.get('email')?.invalid && (recoveryForm.get('email')?.dirty || recoveryForm.get('email')?.touched)"
-              class="text-danger">
-              <p *ngIf="recoveryForm.get('email')?.errors?.required" class="text-gray-700 dark:text-gray-200">Este campo es requerido.</p>
-              <p *ngIf="recoveryForm.get('email')?.errors?.email" class="text-gray-700 dark:text-gray-200">Debe ser un correo válido.</p>
+<div class="min-h-screen flex flex-col justify-center items-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl w-full flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
+    <!-- Primer cuadro: Recuperar Contraseña -->
+    <div class="w-full md:w-1/2">
+      <div class="bg-white py-12 px-8 shadow rounded-lg sm:px-10">
+        <div>
+          <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Recuperar Contraseña</h2>
+        </div>
+        <form class="mt-8 space-y-6" [formGroup]="recoveryForm" (ngSubmit)="onSubmit()">
+          <div class="rounded-md shadow-sm -space-y-px">
+            <div>
+              <label for="email" class="sr-only">Correo Electrónico</label>
+              <input id="email" name="email" type="email" autocomplete="email" formControlName="email"
+                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-lg"
+                placeholder="Correo Electrónico">
             </div>
           </div>
-        </div>
 
-        <div class="flex justify-end mt-6">
-          <button type="submit" [disabled]="!recoveryForm.valid"
-            class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Enviar</button>
-        </div>
+          <div class="flex items-center justify-between">
+            <div class="text-sm">
+              <a href="/login" class="font-medium text-indigo-600 hover:text-indigo-500">
+                Volver al inicio de sesión
+              </a>
+            </div>
+          </div>
 
-        <div *ngIf="successMessage" class="text-success mt-3">{{ successMessage }}</div>
-        <div *ngIf="errorMessage" class="text-danger mt-3">{{ errorMessage }}</div>
-      </form>
+          <div>
+            <button type="submit"
+              class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Enviar Solicitud
+            </button>
+          </div>
+
+          <div *ngIf="successMessage" class="mt-4 text-green-500">
+            {{ successMessage }}
+          </div>
+          <div *ngIf="errorMessage" class="mt-4 text-red-500">
+            {{ errorMessage }}
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Segundo cuadro: Restablecer Contraseña -->
+    <div class="w-full md:w-1/2">
+      <div class="bg-white py-12 px-8 shadow rounded-lg sm:px-10">
+        <div>
+          <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Restablecer Contraseña</h2>
+        </div>
+        <form class="mt-8 space-y-6" [formGroup]="resetPasswordForm" (ngSubmit)="onChangePassword()">
+          <div class="rounded-md shadow-sm -space-y-px">
+            <div>
+              <label for="token" class="sr-only">Token</label>
+              <input id="token" name="token" type="text" formControlName="token"
+                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-lg"
+                placeholder="Token">
+            </div>
+            <div>
+              <label for="newPassword" class="sr-only">Nueva Contraseña</label>
+              <input id="newPassword" name="newPassword" type="password" formControlName="newPassword"
+                class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-lg"
+                placeholder="Nueva Contraseña">
+            </div>
+          </div>
+
+          <div>
+            <button type="submit"
+              class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Cambiar Contraseña
+            </button>
+          </div>
+
+          <div *ngIf="resetPasswordSuccessMessage" class="mt-4 text-green-500">
+            {{ resetPasswordSuccessMessage }}
+          </div>
+          <div *ngIf="resetPasswordErrorMessage" class="mt-4 text-red-500">
+            {{ resetPasswordErrorMessage }}
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
