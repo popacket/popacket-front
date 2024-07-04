@@ -1,0 +1,34 @@
+<table class="table min-w-full flex border border-solid border-1 border-azul m-9">
+  <thead class="bg-azul text-white h-5">
+    <tr class="px-20">
+      <td class="w-1/6 py-3 px-4 text-center border-r border-solid border-blanco" >ID</td>
+      <td class="w-1/6 py-3 px-4 text-left border-r border-solid border-blanco">Descripción</td>
+      <td class="w-1/6 py-3 px-4 text-left border-r border-solid border-blanco">Dirección de destino</td>
+      <td class="w-1/6 py-3 px-4 text-left border-r border-solid border-blanco">Dirección de origen</td>
+      <td class="w-1/6 py-3 px-4 text-left border-r border-solid border-blanco">Tipo de Pago</td>
+      <td class="w-1/6 py-3 px-4 text-center border-r border-solid border-blanco">Estado</td>
+      <td class="w-1/6 py-3 px-4 text-center border-r border-solid border-blanco">Peso</td>
+      <td class="w-1/6 py-3 px-4 text-center">Acciones</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let package of paquetes" class="border-t border-gray-300 odd:bg-white even:bg-gray-100">
+      <td class="py-3 px-4 flex justify-center">{{ package.id }}</td>
+      <td class="py-3 px-4">{{ package.description }}</td>
+      <td class="py-3 px-4">{{ package.destinationAddress }}</td>
+      <td class="py-3 px-4">{{ package.originAddress }}</td>
+      <td class="py-3 px-4">{{ package.paymentType }}</td>
+      <td class="py-3 px-4 text-center">{{ package.status }}</td>
+      <td class="py-3 px-4 text-center">{{ package.weight }}</td>
+      <td class="py-3 px-4 flex justify-center">
+        <button
+        (click)="cancelPackage(package.id)"
+        class="w-5 border h-5 border-solid border-white rounded-md bg-red-500 mx-5 px-9 pb-6 text-white flex justify-center">
+        Cancelar
+        </button>
+        <button class="w-5 border h-5 border-solid border-white rounded-md px-9 pb-6 bg-green-700 text-white flex justify-center">
+          Detalle
+        </button>
+      </td>
+  </tbody>
+</table>
