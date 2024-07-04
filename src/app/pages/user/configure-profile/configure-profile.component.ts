@@ -4,13 +4,14 @@ import { UserService } from '../services/user.service';
 import { UserRequest } from '../interface/user-request.interface';
 import { UserResponse } from '../interface/user-response.interface';
 import { NavbarComponent } from '../../../components/navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-configure-profile',
   standalone: true,
-  imports: [NavbarComponent,ReactiveFormsModule],
+  imports: [NavbarComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './configure-profile.component.html',
-  styleUrl: './configure-profile.component.css'
+  styleUrls: ['./configure-profile.component.css']
 })
 export class ConfigureProfileComponent implements OnInit {
   profileForm: FormGroup;
@@ -71,5 +72,29 @@ export class ConfigureProfileComponent implements OnInit {
         }
       });
     }
+  }
+
+  get document() {
+    return this.profileForm.get('document');
+  }
+
+  get name() {
+    return this.profileForm.get('name');
+  }
+
+  get lastName() {
+    return this.profileForm.get('lastName');
+  }
+
+  get email() {
+    return this.profileForm.get('email');
+  }
+
+  get pass() {
+    return this.profileForm.get('pass');
+  }
+
+  get phone() {
+    return this.profileForm.get('phone');
   }
 }
