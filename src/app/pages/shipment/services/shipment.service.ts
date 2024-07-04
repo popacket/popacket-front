@@ -1,4 +1,3 @@
-// src/app/shipment/services/shipment.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -20,7 +19,7 @@ export class ShipmentService {
 
     // Método para reprogramar un envío utilizando POST
     rescheduleShipment(rescheduleRequest: RescheduleShipmentRequest): Observable<ShipmentResponse> {
-        return this.http.post<ShipmentResponse>(`${this.apiUrl}/reschedule`, rescheduleRequest);
-    }
+      return this.http.post<ShipmentResponse>(`${this.apiUrl}/reschedule`, rescheduleRequest);
+  }
 }
 
