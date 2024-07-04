@@ -1,3 +1,5 @@
+import { RateComponent } from './pages/shipment/rate/rate.component';
+import { Routes } from '@angular/router';
 import { Routes, RouterOutlet } from '@angular/router';
 import { MyShipmentsComponent } from './pages/user/my-ActiveShipments/my-ActiveShipments.component';
 import { ViewOrderShipment } from './pages/shipment/view-order-shipment/view-order-shipment.component';
@@ -45,5 +47,9 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'rate', 
+    component: RateComponent
   }
 ];
