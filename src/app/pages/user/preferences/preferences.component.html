@@ -1,0 +1,32 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <form [formGroup]="preferencesForm" (ngSubmit)="onSubmit()" class="w-full max-w-lg p-8 space-y-8 bg-white rounded-lg shadow-lg border-2 border-blue-500">
+        <h2 class="text-lg font-semibold text-center text-blue-500">Editar Preferencias</h2>
+
+        <div class="space-y-2">
+            <label for="defaultShippingAddress" class="block text-sm font-medium text-gray-700">Dirección de Envío</label>
+            <input type="text" formControlName="defaultShippingAddress" id="defaultShippingAddress"
+                   class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                   placeholder="Dirección de envío predeterminada">
+        </div>
+
+        <div class="space-y-2">
+            <label for="preferredPaymentMethod" class="block text-sm font-medium text-gray-700">Método de Pago</label>
+            <input type="text" formControlName="preferredPaymentMethod" id="preferredPaymentMethod"
+                   class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                   placeholder="Método de pago preferido">
+        </div>
+
+        <div class="space-y-2">
+            <label for="preferredShippingType" class="block text-sm font-medium text-gray-700">Tipo de Envío</label>
+            <input type="text" formControlName="preferredShippingType" id="preferredShippingType"
+                   class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                   placeholder="Tipo de envío preferido">
+        </div>
+
+        <div class="flex justify-center mt-4">
+            <button type="submit" class="px-6 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300">
+                Actualizar Preferencias
+            </button>
+        </div>
+    </form>
+</div>
