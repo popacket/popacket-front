@@ -6,6 +6,7 @@ import { RegisterComponent as DeliveryPersonRegisterComponent} from './pages/del
 import { HomeComponent } from './pages/home/home.component'
 import { PreferencesComponent  } from './pages/user/preferences/preferences.component';
 import { RescheduleShipmentComponent } from './pages/shipment/rescheduleshipment/rescheduleshipment.component';
+import { DeleteShipmentComponent } from './pages/shipment/delete/delete.component';
 export const routes: Routes = [
   {
     path: 'login',
@@ -34,5 +35,9 @@ export const routes: Routes = [
   {
     path: 'reschedule',  
     component: RescheduleShipmentComponent
+  },
+  {
+    path: 'delete',  
+    component: DeleteShipmentComponent
   }
 ];

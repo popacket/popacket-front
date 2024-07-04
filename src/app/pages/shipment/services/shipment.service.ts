@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ShipmentRatingRequest } from '../interface/shipmentrating-request.interface';
 import { ShipmentResponse } from '../interface/shipment-response.interface';
-import { RescheduleShipmentRequest } from '../interface/rescheduleshipment-request.interface'; // Asegúrate de importar la interfaz correcta
+import { RescheduleShipmentRequest } from '../interface/rescheduleshipment-request.interface';
+import { DeleteShipmentRequest } from '../interface/deleteshipment-request.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,15 @@ export class ShipmentService {
         return this.http.post<ShipmentResponse>(`${this.apiUrl}/rate`, ratingRequest);
     }
 
-    // Método para reprogramar un envío utilizando POST
+
     rescheduleShipment(rescheduleRequest: RescheduleShipmentRequest): Observable<ShipmentResponse> {
-      return this.http.post<ShipmentResponse>(`${this.apiUrl}/reschedule`, rescheduleRequest);
-  }
+        return this.http.post<ShipmentResponse>(`${this.apiUrl}/reschedule`, rescheduleRequest);
+    }
+
+    deleteShipment(deleteRequest: DeleteShipmentRequest): Observable<any> {
+        return this.http.delete<any>(`${this.apiUrl}/delete`, {
+            body: deleteRequest 
+        });
+    }
 }
 
