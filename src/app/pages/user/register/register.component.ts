@@ -21,19 +21,6 @@ import Swal from 'sweetalert2'
 export class RegisterComponent {
 	userForm: FormGroup;
 
-	constructor(
-		private fb: FormBuilder // private snackBar: MatSnackBar,
-	) {
-		this.userForm = this.fb.group({
-			document: ['', Validators.required],
-			name: ['', Validators.required],
-			lastName: ['', Validators.required],
-			email: ['', [Validators.required, Validators.email]],
-			pass: ['', [Validators.required, Validators.minLength(8)]],
-			phone: ['', Validators.required],
-		});
-	}
-
   constructor(
     private fb: FormBuilder,
   ) {
@@ -47,12 +34,11 @@ export class RegisterComponent {
     });
   }
   private userService = inject(UserService);
-  
+
 	controlHasError(control: string, error: string) {
 		return this.userForm.controls[control].hasError(error);
 	}
-	private userService = inject(UserService);
-  
+
 	onSubmit = () => {
 		console.log(this.userForm.value);
 		if (this.userForm.invalid) {
