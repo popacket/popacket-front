@@ -15,4 +15,8 @@ export class ShipmentService {
   getAllShipmentAddresses(): Observable<ShipmentResponse[]> {
     return this.http.get<ShipmentResponse[]>(`${this.url}/ListDestinationLocation`);
   }
+
+  requestReturn(shipmentId: number): Observable<ShipmentResponse> {
+    return this.http.post<ShipmentResponse>(`${this.url}/return/${shipmentId}`, null);
+  }
 }

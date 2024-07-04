@@ -4,6 +4,7 @@ import { RegisterComponent } from './pages/user/register/register.component'
 import { RegisterComponent as DeliveryPersonRegisterComponent} from './pages/delivery-person/register/register.component'
 import { HomeComponent } from './pages/home/home.component';
 import { ListDestinationComponent } from './pages/shipment/list-destination/list-destination.component';
+import { ReturnComponent } from './pages/shipment/return/return.component';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'shipment/list-destination',
     component: ListDestinationComponent
+  },
+  {
+    path: 'shipment/request-return',
+    component: ReturnComponent
   }
 ];

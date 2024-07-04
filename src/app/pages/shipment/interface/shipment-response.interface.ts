@@ -1,5 +1,5 @@
-export interface ShipmentResponse
-{
+export interface ShipmentResponse {
+    
     id: number;
     packageId: number;
     originLocationId: number;
@@ -9,4 +9,5 @@ export interface ShipmentResponse
     deliveryDateTime: string;
     deliveryPersonId: number;
     shippingRateId: number;
+    returnRequested: boolean;
 }

@@ -1,4 +1,11 @@
-export interface ShipmentRequest
-{
-    destinationLocationId: number
+export interface ShipmentRequest {
+    
+    packageId: number;
+    originLocationId: number;
+    destinationLocationId: number;
+    status: string;
+    pickupDateTime: string;
+    deliveryDateTime: string;
+    deliveryPersonId: number;
+    shippingRateId: number;
 }
