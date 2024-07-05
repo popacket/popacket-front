@@ -3,7 +3,7 @@ import { LoginComponent } from './pages/user/login/login.component'
 import { RegisterComponent } from './pages/user/register/register.component'
 import { RegisterComponent as DeliveryPersonRegisterComponent} from './pages/delivery-person/register/register.component'
 import { HomeComponent } from './pages/home/home.component';
-import { ListDestinationComponent } from './pages/shipment/list-destination/list-destination.component';
+import { ListDestinationComponent } from './pages/packagess/list-destination/list-destination.component';
 
 export const routes: Routes = [
   {
@@ -23,7 +23,7 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'shipment/list-destination',
+    path: 'package/list-destination',
     component: ListDestinationComponent
   }
 ];
