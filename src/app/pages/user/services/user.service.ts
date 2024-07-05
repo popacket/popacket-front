@@ -21,12 +21,13 @@ export class UserService {
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
-      console.error('Se ha producido un error ' + error.error);
+      console.error('Error de red:', error.error);
     } else {
-      console.error('Backend retornó el código de estado ' + error.status);
+      console.error(`Backend retornó el código ${error.status}, cuerpo del error: `, error.error);
     }
-    return throwError(() => error);
+    return throwError(() => new Error('Algo malo ocurrió; por favor, intente nuevamente más tarde.'));
   }
+  
 
   registerUser(newUser: UserRequest): Observable<UserResponse> {
     return this.httpClient.post<UserResponse>(`${this.url}/users`, newUser).pipe(

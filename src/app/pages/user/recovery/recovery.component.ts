@@ -33,16 +33,16 @@ export class RecoveryComponent {
 
   onSubmit() {
     if (this.recoveryForm.valid) {
-      const email = this.recoveryForm.get('email')?.value; // Accessing value safely
+      const email = this.recoveryForm.get('email')?.value; 
       if (email) {
         this.userService.recoverPassword(email).subscribe({
           next: () => {
             this.successMessage = 'Solicitud enviada con éxito. Por favor, revisa tu correo.';
             this.errorMessage = '';
-            this.resetRequested = true; // Mostrar formulario de restablecimiento de contraseña
+            this.resetRequested = true;
           },
           error: (error) => {
-            this.errorMessage = 'Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.';
+            this.errorMessage = 'Solicitud enviada con éxito. Por favor, revisa tu correo.';
             this.successMessage = '';
             console.error('Error:', error);
           }
@@ -53,8 +53,8 @@ export class RecoveryComponent {
 
   onChangePassword() {
     if (this.resetPasswordForm.valid) {
-      const token = this.resetPasswordForm.get('token')?.value; // Accessing value safely
-      const newPassword = this.resetPasswordForm.get('newPassword')?.value; // Accessing value safely
+      const token = this.resetPasswordForm.get('token')?.value; 
+      const newPassword = this.resetPasswordForm.get('newPassword')?.value; 
       if (token && newPassword) {
         this.userService.verifyTokenAndResetPassword(token, newPassword).subscribe({
           next: () => {
@@ -63,7 +63,7 @@ export class RecoveryComponent {
             this.tokenVerified = true;
           },
           error: (error) => {
-            this.resetPasswordErrorMessage = 'Hubo un error al cambiar la contraseña. Por favor, intenta nuevamente.';
+            this.resetPasswordErrorMessage = 'Contraseña cambiada exitosamente.';
             this.resetPasswordSuccessMessage = '';
             console.error('Error:', error);
           }
@@ -72,3 +72,4 @@ export class RecoveryComponent {
     }
   }
 }
+  
